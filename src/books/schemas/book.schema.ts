@@ -11,7 +11,7 @@ export class Book {
   @Prop({ required: true })
   text: string;
 
-  @Prop()
+  @Prop({ required: false })
   author: string;
 
   // TODO

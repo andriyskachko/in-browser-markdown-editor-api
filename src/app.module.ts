@@ -4,6 +4,7 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { BooksModule } from './books/books.module';
+import { MarkdownModule } from './markdown/markdown.module';
 
 @Module({
   imports: [
@@ -16,6 +17,7 @@ import { BooksModule } from './books/books.module';
       }),
     }),
     BooksModule,
+    MarkdownModule,
   ],
   controllers: [AppController],
   providers: [AppService],
