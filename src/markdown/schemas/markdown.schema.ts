@@ -10,6 +10,12 @@ export class Markdown {
 
   @Prop({ required: true })
   body: string;
+
+  @Prop({ default: Date.now })
+  createdAt: Date;
+
+  @Prop({ default: Date.now })
+  updatedAt: Date;
 }
 
 export const MarkdownSchema = SchemaFactory.createForClass(Markdown);
