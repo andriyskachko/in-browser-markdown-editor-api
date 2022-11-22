@@ -21,10 +21,15 @@ export class MarkdownService {
     const query = this.markdownModel.find();
     const page = parseInt(req.query.page as string) || 1;
     const limit = 10;
-    // const total = await this.markdownModel.count();
+    const total = await this.markdownModel.count();
+    const lastPage = Math.ceil(total / limit);
+
+    if (page > lastPage) return null;
+
     const data = query
       .skip((page - 1) * limit)
       .limit(limit)
+      .sort({ updatedAt: 1 })
       .exec();
 
     return data;
