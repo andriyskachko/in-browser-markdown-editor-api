@@ -1,15 +1,17 @@
-import { Body, Controller, Get, Post } from '@nestjs/common';
+import { Body, Controller, Get, Post, Req } from '@nestjs/common';
 import { MarkdownService } from './markdown.service';
 import { CreateMarkdownDto } from './dto/create-markdown.dto';
 import { Markdown } from './schemas/markdown.schema';
+import { Request } from 'express';
 
 @Controller('markdown')
 export class MarkdownController {
   constructor(private markdownService: MarkdownService) {}
 
   @Get()
-  async findAll(): Promise<Markdown[]> {
-    return this.markdownService.findAll();
+  async find(@Req() req: Request): Promise<Markdown[]> {
+    const data = await this.markdownService.find(req);
+    return data;
   }
 
   @Post()
