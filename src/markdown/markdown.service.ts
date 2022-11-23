@@ -24,7 +24,7 @@ export class MarkdownService {
     const total = await this.markdownModel.count();
     const lastPage = Math.ceil(total / limit);
 
-    if (page > lastPage) return null;
+    if (page > lastPage) return [];
 
     const data = query
       .skip((page - 1) * limit)
