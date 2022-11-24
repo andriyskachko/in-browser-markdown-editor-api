@@ -17,9 +17,8 @@ export class MarkdownService {
     return createdBook.save();
   }
 
-  async find(@Req() req: Request) {
+  async find(page: number) {
     const query = this.markdownModel.find();
-    const page = parseInt(req.query.page as string) || 1;
     const limit = 10;
     const total = await this.markdownModel.count();
     const lastPage = Math.ceil(total / limit);
@@ -33,5 +32,9 @@ export class MarkdownService {
       .exec();
 
     return data;
+  }
+
+  async update(@Req() req: Request) {
+    const id = req.query.id;
   }
 }

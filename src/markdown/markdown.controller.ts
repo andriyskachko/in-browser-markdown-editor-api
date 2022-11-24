@@ -10,7 +10,8 @@ export class MarkdownController {
 
   @Get()
   async find(@Req() req: Request): Promise<Markdown[]> {
-    const data = await this.markdownService.find(req);
+    const page = parseInt(req.query.page as string) || 1;
+    const data = await this.markdownService.find(page);
     return data;
   }
 
