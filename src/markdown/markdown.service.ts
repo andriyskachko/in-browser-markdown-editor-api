@@ -17,7 +17,7 @@ export class MarkdownService {
     return createdBook.save();
   }
 
-  async find(page: number) {
+  async find(page: number): Promise<MarkdownDocument[]> {
     const query = this.markdownModel.find();
     const limit = 10;
     const total = await this.markdownModel.count();
@@ -25,7 +25,7 @@ export class MarkdownService {
 
     if (page > lastPage) return [];
 
-    const data = query
+    const data = await query
       .skip((page - 1) * limit)
       .limit(limit)
       .sort({ updatedAt: 1 })
@@ -34,7 +34,10 @@ export class MarkdownService {
     return data;
   }
 
-  async update(@Req() req: Request) {
-    const id = req.query.id;
+  async update(
+    id: string,
+    updates: Partial<MarkdownDocument>,
+  ): Promise<MarkdownDocument> {
+    const query = await this.markdownModel.find().exec();
   }
 }
