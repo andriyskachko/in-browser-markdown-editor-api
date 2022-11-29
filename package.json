@@ -5,6 +5,14 @@
   "author": "@andriyskachko",
   "private": true,
   "license": "UNLICENSED",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/andriyskachko/in-browser-markdown-editor-api.git"
+  },
+  "bugs": {
+    "url": "https://github.com/andriyskachko/in-browser-markdown-editor-api/issues"
+  },
+  "homepage": "https://github.com/andriyskachko/in-browser-markdown-editor#readme",
   "scripts": {
     "prebuild": "rimraf dist",
     "build": "nest build",
