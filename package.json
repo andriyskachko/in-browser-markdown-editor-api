@@ -1,8 +1,8 @@
 {
-  "name": "parallel-reading-app-api",
+  "name": "in-browser-markdown-editor-api",
   "version": "1.0.0",
-  "description": "API for parallel-reading-app",
-  "author": "",
+  "description": "API for in-browser-markdown-editor",
+  "author": "@andriyskachko",
   "private": true,
   "license": "UNLICENSED",
   "scripts": {

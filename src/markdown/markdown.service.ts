@@ -34,10 +34,10 @@ export class MarkdownService {
     return data;
   }
 
-  async update(
-    id: string,
-    updates: Partial<MarkdownDocument>,
-  ): Promise<MarkdownDocument> {
-    const query = await this.markdownModel.find().exec();
-  }
+  // async update(
+  //   id: string,
+  //   updates: Partial<MarkdownDocument>,
+  // ): Promise<MarkdownDocument> {
+  //   const query = await this.markdownModel.find().exec();
+  // }
 }
